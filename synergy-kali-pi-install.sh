@@ -21,5 +21,15 @@ install_dependencies(){
 	done
 }
 
+clone_and_build(){
+
+git clone https://github.com/symless/synergy-core
+cd synergy-core
+cmake .
+make
+make install
+}
 
 install_dependencies
+clone_and_build
+#https://superuser.com/questions/1225446/unable-to-run-synergy-on-kali
