@@ -22,6 +22,8 @@ install_dependencies(){
 			echo "$dep Status:INSTALLED"
 		fi
 	done
+
+	apt-get --yes --force-yes install qttools5-*
 }
 
 clone_and_build(){
