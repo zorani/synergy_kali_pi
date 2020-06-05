@@ -30,6 +30,14 @@ make
 make install
 }
 
+add_to_launcher(){
+
+	file_location="/usr/local/share/applications/synergy.desktop"
+	sed -i 's/Path=\/usr\/bin/Path=\/usr\/local\/bin/g' $file_location
+	sed -i 's/Exec=\/usr\/bin\/synergy/Exec=\/usr\/local\/bin\/synergy/g' $file_location
+}
+
 install_dependencies
 clone_and_build
+add_to_launcher
 #https://superuser.com/questions/1225446/unable-to-run-synergy-on-kali
