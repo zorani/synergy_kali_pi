@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+apt-get update
+apt-get upgrade
+
 declare -a arr_deps=("build-essential" "cmake" "libavahi-compat-libdnssd-dev" "libcurl4-openssl-dev" "libssl-dev" "lintian" "python3" "xorg-dev" "fakeroot" "qttools5-dev-tools" "xorg-dev" "libxtst-dev"  "libxext-dev" "libqt5xmlpatterns5-dev" "qtbase5-dev" 
 "qttools5-*" "libavahi-compat-libdnssd-dev")
 
