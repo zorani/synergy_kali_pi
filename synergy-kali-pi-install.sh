@@ -28,7 +28,7 @@ install_dependencies(){
 
 clone_and_build(){
 
-git clone https://github.com/symless/synergy-core
+git clone https://github.com/symless/synergy-core --branch v1.13.0-stable
 cd synergy-core
 cmake .
 make
