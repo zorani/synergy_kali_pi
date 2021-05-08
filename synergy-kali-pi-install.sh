@@ -42,7 +42,33 @@ add_to_launcher(){
 	sed -i 's/Exec=\/usr\/bin\/synergy/Exec=\/usr\/local\/bin\/synergy/g' $file_location
 }
 
+configure_as_service(){
+
+	cat <<"EOT" > /etc/systemd/system/synergy.service
+[Unit]
+Description=Start Synergy
+After=network-online.target
+
+[Service]
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+ExecStart=/usr/local/bin/synergy
+Restart=always
+RestartSec=10s
+KillMode=process
+TimeoutSec=infinity
+
+[Install]
+WantedBy=graphical.target
+EOT
+
+	/usr/bin/systemctl start synergy.service
+	/usr/bin/systemctl enable synergy.service
+
+}
+
 install_dependencies
 clone_and_build
 add_to_launcher
 #https://superuser.com/questions/1225446/unable-to-run-synergy-on-kali
+configure_as_service
